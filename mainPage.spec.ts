@@ -72,7 +72,7 @@ test('Проверка кнопки  Get started', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   await expect.soft(page.getByRole('link', { name: 'Get started' })).toBeVisible(); // метод soft нужен для того, чтобы тест не останавливался после первой ошибки, а записал ошибку в лог и пошел дальше
-  await expect.soft(page.getByRole('banner')).toContainText('Get started');
+  await expect.soft(page.getByRole('link', { name: 'Get started' })).toContainText('Get started');
   await expect
     .soft(page.getByRole('link', { name: 'Get started' }))
     .toHaveAttribute('href', '/docs/intro');
